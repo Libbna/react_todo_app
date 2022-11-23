@@ -1,0 +1,78 @@
+.input {
+  @apply flex w-[95%] relative items-center;
+}
+
+.input__box {
+  @apply w-full rounded-[3.125rem] py-5 px-[1.875rem] text-[1.563rem] border-none duration-200;
+
+  box-shadow: inset 0 0 5px #726c6c;
+}
+
+.input__box:focus {
+  @apply outline-none;
+  box-shadow: 0 0 10px 1000px rgb(190 149 203 / 78%);
+}
+
+.input__submit {
+  @apply absolute w-[3.125rem] h-[3.125rem] m-3 rounded-[3.125rem] right-0 border-none text-lg bg-red-100 font-bold text-[#b136a2] transition-all duration-200;
+
+  box-shadow: 0 0 10px #726c6c;
+}
+
+.input__submit:hover {
+  @apply bg-red-200;
+}
+
+.container {
+  @apply flex w-[95%] mt-2.5 justify-between items-start;
+}
+
+.todo__heading {
+  @apply text-3xl text-white;
+}
+
+.todos {
+  @apply flex w-[47.5%] flex-col p-[0.938rem] rounded-md bg-[#bd00a2b5];
+}
+
+.todos__single {
+  @apply flex rounded-[0.313rem] mt-4 bg-white p-4 border-solid border-purple-400 shadow-xl duration-200;
+}
+
+.todos__single:hover {
+  @apply scale-105 shadow;
+}
+
+.todos__singe_text {
+  @apply flex-1 p-1 border-none text-xl;
+}
+
+.todos__singe_text:focus {
+  @apply outline-none;
+}
+
+.todo_icons {
+  @apply flex;
+}
+
+.icon {
+  @apply text-2xl cursor-pointer;
+}
+
+.remove {
+  @apply bg-[rgb(235,103,80)];
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 95%;
+  }
+  .todos {
+    width: 95%;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    @apply w-[95%] flex-col;
+  }
+}
