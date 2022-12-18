@@ -5,14 +5,12 @@ import { IoCheckmarkDoneSharp } from 'react-icons/io5'
 import './styles.css'
 import { Draggable } from 'react-beautiful-dnd'
 
-type Props = {
+const SingleTodo: React.FC<{
   index: number
   todo: Todo
-  todos: Todo[]
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
-}
-
-const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
+  todos: Array<Todo>
+  setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>
+}> = ({ index, todo, todos, setTodos }) => {
   const [edit, setEdit] = useState<boolean>(false)
   const [editTodo, setEditTodo] = useState<string>(todo.todo)
 
@@ -31,7 +29,10 @@ const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
     setEdit(false)
   }
 
-  //done function
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id))
+  }
+
   const handleDone = (id: number) => {
     setTodos(
       todos.map((todo) =>
@@ -39,12 +40,6 @@ const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
       ),
     )
   }
-
-  // delete function
-  const handleDelete = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id))
-  }
-
   return (
     <Draggable draggableId={todo.id.toString()} index={index}>
       {(provided) => (
